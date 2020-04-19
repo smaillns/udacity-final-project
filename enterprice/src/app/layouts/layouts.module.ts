@@ -29,6 +29,8 @@ import { enterpriceVideoComponent } from './enterprice/enterprice-video/enterpri
 import { EnterpriceComponent } from './enterprice/enterprice.component';
 import { LayoutsRoutingModule } from './layouts-routing.module';
 import { CountDownComponent } from './enterprice/count-down/count-down.component';
+import { ClientAccountComponent } from './client-space/client-account/client-account.component';
+import {AccordionComponent} from './client-space/client-account/accordion/accordion.component';
 
 
 
@@ -36,7 +38,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {};
 
 @NgModule({
   declarations: [
-    EnterpriceComponent, enterpriceHeaderComponent, enterpriceNavComponent, enterpriceServicesComponent, enterpriceAboutComponent, enterpriceDownloadComponent, enterpriceScreenshotsComponent, enterpricePricingComponent, enterpriceVideoComponent, enterpriceSubscribeComponent, enterpriceFooterComponent, CountDownComponent],
+    EnterpriceComponent, enterpriceHeaderComponent, enterpriceNavComponent, enterpriceServicesComponent, enterpriceAboutComponent, enterpriceDownloadComponent, enterpriceScreenshotsComponent, enterpricePricingComponent, enterpriceVideoComponent, enterpriceSubscribeComponent, enterpriceFooterComponent, CountDownComponent, ClientAccountComponent, AccordionComponent],
 
   imports: [
     CommonModule,

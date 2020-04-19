@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EnterpriceComponent } from './enterprice/enterprice.component';
+import {ClientAccountComponent} from "./client-space/client-account/client-account.component";
 
 
 const routes: Routes = [
@@ -10,7 +11,15 @@ const routes: Routes = [
     data: {
       title: "UČČI |  Nouvelle solution de commande en ligne"
     }
-  }
+  },
+  {
+    path: 'client',
+    component: ClientAccountComponent,
+    data: {
+      title: "UČČI |  Mon espace"
+    }
+  },
+
 
 ]
 
