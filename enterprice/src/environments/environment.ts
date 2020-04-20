@@ -2,9 +2,22 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+
+const apiId = '2nio3dcn79'
+export const apiEndpoint = `https://${apiId}.execute-api.us-east-1.amazonaws.com/dev`
+
+
 export const environment = {
   production: false
 };
+
+
+export const authConfig = {
+  // TODO: Create an Auth0 application and copy values from it into this map
+  domain: 'smaillns.auth0.com',            // Auth0 domain
+  clientId: 'EsB8Mm1tOBmpXvXk23bNfgkGZ62GTSS6',          // Auth0 client id
+  callbackUrl: 'http://localhost:4200/callback'
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

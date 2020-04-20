@@ -4,11 +4,11 @@ import { EnterpriceComponent } from './layouts/enterprice/enterprice.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'enterprice',
+    redirectTo: 'accueil',
     pathMatch: 'full',
   },
   {
-    path: 'enterprice',
+    path: 'accueil',
     component: EnterpriceComponent,
     data: {
       title: "UČČI |  Nouvelle solution de commande en ligne"

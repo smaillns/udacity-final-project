@@ -1,0 +1,28 @@
+<div class="isotopeContainer row" style="max-height: 300px; max-width: 600px; margin: auto">
+    <ng-container >
+        <figure class="my-app-custom-image-with-desc p-width" *ngFor="let img of allImages">
+            <div class="isotopeSelector shoes fashion ">
+                <div class="overlay">
+                    <div class="border-portfolio">
+                        <div class="overlay-background">
+                            <i class="fa fa-eye" aria-hidden="true" (click)="openImageModalRowDescription(img)"></i>
+                        </div>
+                        <img [src]="img.modal.img" />
+                    </div>
+                </div>
+            </div>
+<!--            <div class="portfolio-text" *ngIf="displayblock.displyBlock">-->
+<!--                <h3 class="head-text">-->
+<!--                    Lorem Ipsum-->
+<!--                </h3>-->
+<!--                <h6 class="head-sub-text">-->
+<!--                    Lorem Ipsum-->
+<!--                </h6>-->
+<!--            </div>-->
+        </figure>
+    </ng-container>
+
+    <ks-modal-gallery [id]="1" [modalImages]="allImages" [plainGalleryConfig]="customPlainGalleryRowDescConfig"
+                      [buttonsConfig]="buttonsConfigCustom">
+    </ks-modal-gallery>
+</div>

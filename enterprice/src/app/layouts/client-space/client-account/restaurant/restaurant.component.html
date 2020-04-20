@@ -1,0 +1,80 @@
+<section class="alert-section" style="margin-top: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-head">Info Restaurant</h3></div>
+                    <div class="card-body" *ngIf="!showEdit">
+                        <div class="btn-section margin-buttons" *ngIf="restaurant != null; else newRestaurant">
+                            <a href="javascript:void(0)" class="float-rght btn btn-default primary-btn danger  back-white" (click)="onDelete()">
+                                <i class="fa fa-remove center-content" aria-hidden="true"></i>&nbsp;Réinitialiser
+                            </a>
+                            <a href="javascript:void(0)" class="float-rght btn btn-default primary-btn info  back-white" (click)="showEdit = true">
+                                <i class="fa fa-edit center-content" aria-hidden="true"></i>&nbsp;Modifier
+                            </a>
+                        </div>
+                        <ng-template #newRestaurant>
+                            <a href="javascript:void(0)" class="float-rght btn btn-default primary-btn light  radius-0 back-white" (click)="showEdit = true">
+                                <i class="fa fa-plus center-content" aria-hidden="true"></i>&nbsp; Ajouter
+                            </a>
+                        </ng-template>
+                        <br/>
+                        <br/>
+                        <div class="" *ngIf="restaurant != null && !showEdit">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-8 offset-md-2">
+                                            <div class="title title2">
+                                                <h6 class="font-primary borders main-text text-uppercase"><span>{{restaurant.name}}</span></h6>
+                                                <i class="fa fa-phone center-content" aria-hidden="true"></i><span> {{restaurant.phone}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <section class="resume portfolio-section zoom-gallery filter-section">
+                                        <app-gallery [imageUrl]="restaurant.imageUrl"></app-gallery>
+                                    </section>
+                                    <!--<app-portfolio-gallery class="p-4col-width" class="p-4col-width"></app-portfolio-gallery>-->
+                                </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="card-body register-page" *ngIf="showEdit">
+                        <div class="theme-card">
+
+
+                            <form class="theme-form" [formGroup]="resForm" >
+                                <input type="text" class="form-control" placeholder="Nom du restaurant"
+                                       formControlName="resName" autocomplete="off">
+
+                                <input type="text" class="form-control" id="phone" placeholder="Téléphone"
+                                       formControlName="resPhone" autocomplete="off">
+                                <div class="form-group">
+                                    <label for="file">Choisissez une photo</label>
+                                    <input type="file" (change)="handleFileInput($event.target.files)">
+                                </div>
+
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3" placeholder="Remarques ou suggestions"></textarea>
+                                </div>
+                                <h5 style="color: red; font-size: 10px" *ngIf="formError">&nbsp;&nbsp;&nbsp;Vous devez renseigner les champs 'Nom Restaurant' et 'Telephone'</h5>
+                                <a href="javascript:void(0)" class="btn primary-btn btn-default bg-light-inner"  style="color: black !important;" (click)=" onSave()" >Sauvegarder</a>
+                                <a href="javascript:void(0)" class="btn primary-btn radius-0" (click)="onCancel()" >Annuler</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</section>
+
+
