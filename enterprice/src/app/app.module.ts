@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,6 +9,7 @@ import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutsModule } from './layouts/layouts.module';
 import { SharedModule } from './shared/shared.module';
+import {InterceptorService} from "./shared/service/interceptor.service";
 
 
 @NgModule({
@@ -27,7 +28,13 @@ import { SharedModule } from './shared/shared.module';
     RouterModule.forRoot(routes, { useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' })
 
   ],
-  providers: [],
+  providers: [
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: InterceptorService,
+        multi: true
+      }
+      ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

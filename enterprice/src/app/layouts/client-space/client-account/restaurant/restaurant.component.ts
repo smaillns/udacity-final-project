@@ -1,9 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Restaurant} from '../models/Restaurant';
-import {RestaurantService} from "../../../../shared/service/restaurant.service";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {RestaurantService} from '../../../../shared/service/restaurant.service';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import Axios from 'axios';
-import { Router } from '@angular/router';
+import {AuthService} from "../../../../shared/service/auth.service";
+import {mergeMap} from "rxjs/operators";
+
 
 @Component({
   selector: 'app-restaurant',
@@ -24,7 +26,7 @@ export class RestaurantComponent implements OnInit {
   private  resPhone: FormControl;
 
 
-  constructor(private restaurantService: RestaurantService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private restaurantService: RestaurantService, private formBuilder: FormBuilder, public auth: AuthService) {
     if (this.restaurant == null){
       this.resName = new FormControl('', [Validators.required]);
       this.resPhone = new FormControl('', [Validators.required]);
@@ -58,6 +60,7 @@ export class RestaurantComponent implements OnInit {
         this.resPhone.setValue(this.restaurant.phone);
       }
     });
+
 
   }
 
@@ -152,5 +155,7 @@ export class RestaurantComponent implements OnInit {
   onCancel(){
     this.showEdit = false;
   }
+
+
 
 }
