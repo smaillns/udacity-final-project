@@ -10,17 +10,17 @@ import {RestaurantUpdate} from "../../models/RestaurantUpdate";
 
 const data = new Data()
 
-export async  function getRestaurant(): Promise<Restaurant>{
-    return await data.getRestaurant()
+export async  function getRestaurant(userId: string): Promise<Restaurant>{
+    return await data.getRestaurant(userId)
 }
 
 
-export async  function createRestaurant(newRestaurant: CreateRestaurantRequest): Promise<Restaurant>{
+export async  function createRestaurant(userId: string, newRestaurant: CreateRestaurantRequest): Promise<Restaurant>{
     const timestamp = new Date().toISOString()
     const restaurantId = uuid.v4()
 
     const newItem : Restaurant =  {
-        userId: 'user',
+        userId: userId,
         restaurantId: restaurantId,
         createdAt: timestamp,
         name: newRestaurant.name,
@@ -31,13 +31,13 @@ export async  function createRestaurant(newRestaurant: CreateRestaurantRequest):
 }
 
 
-export async function updateRestaurant(restaurantId: string, updateRestaurantRequest: UpdateRestaurantRequest ): Promise<RestaurantUpdate>{
+export async function updateRestaurant(userId: string, restaurantId: string, updateRestaurantRequest: UpdateRestaurantRequest ): Promise<RestaurantUpdate>{
     const updatedRestaurant: RestaurantUpdate = {
         name: updateRestaurantRequest.name,
     }
-    return await data.updateRestaurant(restaurantId, updatedRestaurant)
+    return await data.updateRestaurant(userId, restaurantId, updatedRestaurant)
 }
 
-export async function deleteRestaurant(restaurantId: string): Promise<String> {
-    return data.deleteRestaurant(restaurantId)
+export async function deleteRestaurant(userId, restaurantId: string): Promise<String> {
+    return data.deleteRestaurant(userId, restaurantId)
 }

@@ -16,9 +16,13 @@ export class Data {
         private readonly restaurantTable = process.env.RES_TABLE) {
     }
 
-    async getRestaurant(): Promise<any>{
-        const response = await this.docClient.scan({
-            TableName: this.restaurantTable
+    async getRestaurant(userId: string): Promise<any>{
+        const response = await this.docClient.query({
+            TableName: this.restaurantTable,
+            KeyConditionExpression: 'userId = :userId',
+            ExpressionAttributeValues: {
+                ':userId': userId
+            }
         }).promise()
 
         return response.Items
@@ -38,12 +42,12 @@ export class Data {
 
 
 
-    async updateRestaurant(restaurantId: string, resUpdate: RestaurantUpdate):Promise<RestaurantUpdate> {
+    async updateRestaurant(userId: string, restaurantId: string, resUpdate: RestaurantUpdate):Promise<RestaurantUpdate> {
 
         const itemToUpdate = await this.docClient.get({
                 TableName: this.restaurantTable,
                 Key: {
-                    userId: 'user',
+                    userId: userId,
                     restaurantId: restaurantId
                 }
             }).promise()
@@ -70,11 +74,11 @@ export class Data {
             return resUpdate
     }
 
-    async deleteRestaurant(restaurantId: string){
+    async deleteRestaurant(userId, restaurantId: string){
         await this.docClient.delete({
             TableName: this.restaurantTable,
             Key: {
-                userId: 'user',
+                userId: userId,
                 restaurantId: restaurantId
             }
         }).promise()

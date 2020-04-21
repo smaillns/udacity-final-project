@@ -32,8 +32,8 @@ provider:
 
 functions:
 
-#  Auth:
-#    handler: src/lambda/auth/auth0Authorizer.handler
+  Auth:
+    handler: src/lambda/auth/auth0Authorizer.handler
 
 
   GetRestaurant:
@@ -43,7 +43,7 @@ functions:
           method: get
           path: restaurant
           cors: true
-          # authorizer: Auth
+           authorizer: Auth
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -70,7 +70,7 @@ functions:
       - http:
           method: post
           path: restaurant
-          # authorizer: Auth
+           authorizer: Auth
           request:
             # Schema that will be used to validate incoming requests
             schema:
@@ -95,7 +95,7 @@ functions:
           method: patch
           path: restaurant/{restaurantId}
           cors: true
-#          authorizer: Auth
+          authorizer: Auth
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -118,7 +118,7 @@ functions:
           method: delete
           path: restaurant/{restaurantId}
           cors: true
-#          authorizer: Auth
+          authorizer: Auth
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -139,7 +139,7 @@ functions:
           method: post
           path: restaurant/{restaurantId}/image
           cors: true
-#          authorizer: Auth
+          authorizer: Auth
     iamRoleStatements:
       - Effect: Allow
         Action:

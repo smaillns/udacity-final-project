@@ -2,6 +2,7 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult, APIGatewayProxyHandler } f
 import 'source-map-support/register'
 import * as AWS from 'aws-sdk'
 import * as uuid from 'uuid'
+import {getUserId} from "../utils";
 
 
 const docClient = new AWS.DynamoDB.DocumentClient()
@@ -15,12 +16,12 @@ const bucketName =  process.env.IMAGES_S3_BUCKET
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   const restaurantId = event.pathParameters.restaurantId
-
+  const userId = getUserId(event)
 
   const itemToUpdate = await docClient.get({
     TableName: restaurantTable,
     Key: {
-        userId: 'user',
+        userId: userId,
         restaurantId: restaurantId
     }
     }).promise()
