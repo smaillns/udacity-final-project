@@ -58,7 +58,7 @@ export class Data {
             await this.docClient.update({
                 TableName: this.restaurantTable,
                 Key: {
-                    userId: 'user',
+                    userId: userId,
                     restaurantId: restaurantId
                 },
                 UpdateExpression: "set #n = :r",

@@ -43,7 +43,7 @@ functions:
           method: get
           path: restaurant
           cors: true
-           authorizer: Auth
+          authorizer: Auth
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -70,7 +70,7 @@ functions:
       - http:
           method: post
           path: restaurant
-           authorizer: Auth
+          authorizer: Auth
           request:
             # Schema that will be used to validate incoming requests
             schema:

@@ -3,6 +3,6 @@ export interface Restaurant {
   restaurantId: string
   createdAt: string
   name: string
-  address: string
+  phone: string
   imageUrl?: string
 }

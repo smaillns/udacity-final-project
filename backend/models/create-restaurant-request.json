@@ -8,10 +8,16 @@
       },
       "name": {
         "type": "string"
+      },
+      "createdAt": {
+        "type": "string"
+      },
+      "phone": {
+        "type": "string"
       }
     },
     "required": [
-      "name"
+      "name", "phone"
     ],
     "additionalProperties": false
 }

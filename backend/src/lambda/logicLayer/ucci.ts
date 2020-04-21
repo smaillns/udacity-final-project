@@ -24,7 +24,7 @@ export async  function createRestaurant(userId: string, newRestaurant: CreateRes
         restaurantId: restaurantId,
         createdAt: timestamp,
         name: newRestaurant.name,
-        address: null
+        phone: newRestaurant.phone
     }
 
     return await data.createRestaurant(newItem)
@@ -34,6 +34,7 @@ export async  function createRestaurant(userId: string, newRestaurant: CreateRes
 export async function updateRestaurant(userId: string, restaurantId: string, updateRestaurantRequest: UpdateRestaurantRequest ): Promise<RestaurantUpdate>{
     const updatedRestaurant: RestaurantUpdate = {
         name: updateRestaurantRequest.name,
+        phone: updateRestaurantRequest.phone
     }
     return await data.updateRestaurant(userId, restaurantId, updatedRestaurant)
 }
