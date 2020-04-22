@@ -24,7 +24,7 @@ export class AuthService {
 
   public authorize() {
     this.auth0.authorize({
-      redirectUri: 'http://localhost:4200/client',
+      redirectUri: authConfig.callbackUrl,
       responseType: 'token id_token'
     });
   }
