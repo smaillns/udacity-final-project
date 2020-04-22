@@ -13,8 +13,8 @@ export class RestaurantService {
     // Axios.create()
   }
 
-  getRestaurant():Observable<{items: Restaurant[]}>{
-    return this.httpClient.get<{items: Restaurant[]}>(apiEndpoint + '/restaurant');
+  getRestaurant():Observable<{response: Restaurant[]}>{
+    return this.httpClient.get<{response: Restaurant[]}>(apiEndpoint + '/restaurant');
   }
 
   deleteRestaurant(restaurantId: string){

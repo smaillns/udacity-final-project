@@ -3,14 +3,10 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header" style="display: flex; justify-content: space-between">
+                    <div class="card-header" >
                         <h3 class="card-head">Info Restaurant</h3>
-                        <a href="javascript:void(0)" class="btn primary-btn radius-0" (click)="auth.logout()" *ngIf="auth.loggedIn" >Log Out</a>
-                        <button type="submit" (click)="auth.login()" *ngIf="!auth.loggedIn"
-                                class=" btn btn-default" style="color: rgba(0,0,0,0.66) !important;">S'authentifier
-                        </button>
                     </div>
-                    <div class="" *ngIf="auth.loggedIn">
+                    <div class="">
                         <div class="card-body" *ngIf="!showEdit" >
                             <div class="btn-section margin-buttons" *ngIf="restaurant != null; else newRestaurant">
                                 <a href="javascript:void(0)" class="float-rght btn btn-default primary-btn danger  back-white" (click)="onDelete()">
@@ -40,7 +36,6 @@
                                     <section class="resume portfolio-section zoom-gallery filter-section">
                                         <app-gallery [imageUrl]="restaurant.imageUrl"></app-gallery>
                                     </section>
-                                    <!--<app-portfolio-gallery class="p-4col-width" class="p-4col-width"></app-portfolio-gallery>-->
                                 </div>
 
 

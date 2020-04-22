@@ -61,9 +61,10 @@ export class Data {
                     userId: userId,
                     restaurantId: restaurantId
                 },
-                UpdateExpression: "set #n = :r",
+                UpdateExpression: "set #n = :r, phone =:p",
                 ExpressionAttributeValues: {
-                    ":r": resUpdate.name
+                    ":r": resUpdate.name,
+                    ":p": resUpdate.phone
                 },
                 ExpressionAttributeNames: {
                     "#n": "name"

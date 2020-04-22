@@ -4,7 +4,7 @@ import {RestaurantService} from '../../../../shared/service/restaurant.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import Axios from 'axios';
 import {AuthService} from "../../../../shared/service/auth.service";
-import {mergeMap} from "rxjs/operators";
+
 
 
 @Component({
@@ -54,7 +54,7 @@ export class RestaurantComponent implements OnInit {
     //   imageUrl: 'assets/images/portfolio/1.jpg'
     // }
     this.restaurantService.getRestaurant().subscribe(e => {
-      this.restaurant = e.items[0]
+      this.restaurant = e.response[0]
       if (this.restaurant){
         this.resName.setValue(this.restaurant.name) ;
         this.resPhone.setValue(this.restaurant.phone);
@@ -120,9 +120,10 @@ export class RestaurantComponent implements OnInit {
       this.formError = true
     })
 
-    if(this.fileToUpload)
+    if(this.fileToUpload) {
+      alert('Veuillez attendre le téléchargement de l\'image');
       this.getSigneUrl();
-    else {
+    } else {
       this.showEdit = false;
       this.ngOnInit();
     }
@@ -145,10 +146,18 @@ export class RestaurantComponent implements OnInit {
     }
     this.restaurantService.createRestaurant(restaurant).subscribe(rep =>{
       this.restaurant = rep.item
-      this.showEdit = false;
     }, err => {
       this.formError = true
     })
+
+    if(this.fileToUpload){
+      alert('Veuillez attendre le téléchargement de l\'image');
+      this.getSigneUrl();
+    }
+    else {
+      this.showEdit = false;
+      this.ngOnInit();
+    }
 
   }
 
