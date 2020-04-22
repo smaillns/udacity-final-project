@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "6802f514-4e6b-4339-a18e-6ed58fb0391a",
+		"name": "Final Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "With authentication",
+			"item": [
+				{
+					"name": "Get Restaurant Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{api-id}}.execute-api.us-east-1.amazonaws.com/dev/restaurant",
+							"protocol": "https",
+							"host": [
+								"{{api-id}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Restaurant Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"createdAt\": null,\n\t\"name\": \"name\",\n\t\"phone\": \"0552349395\",\n\t\"restaurantId\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{api-id}}.execute-api.us-east-1.amazonaws.com/dev/restaurant?",
+							"protocol": "https",
+							"host": [
+								"{{api-id}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"restaurant"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Restaurant Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"updatedname\",\n\t\"phone\": \"nsdasdf\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{api-id}}.execute-api.us-east-1.amazonaws.com/dev/restaurant/34e28261-eb9f-4aee-ab4c-1931cb43bad2",
+							"protocol": "https",
+							"host": [
+								"{{api-id}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"restaurant",
+								"34e28261-eb9f-4aee-ab4c-1931cb43bad2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Restaurant Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{api-id}}.execute-api.us-east-1.amazonaws.com/dev/restaurant",
+							"protocol": "https",
+							"host": [
+								"{{api-id}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate URL Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://{{api-id}}.execute-api.us-east-1.amazonaws.com/dev/restaurant/102e2345-4316-4804-bd94-9bcb86b4e2d6/image",
+							"protocol": "https",
+							"host": [
+								"{{api-id}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"restaurant",
+								"102e2345-4316-4804-bd94-9bcb86b4e2d6",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get Restaurant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-id}}.execute-api.us-east-1.amazonaws.com/dev/restaurant",
+					"protocol": "https",
+					"host": [
+						"{{api-id}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Restaurant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"createdAt\": null,\n\t\"name\": \"name\",\n\t\"phone\": \"0552349395\",\n\t\"restaurantId\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-id}}.execute-api.us-east-1.amazonaws.com/dev/restaurant",
+					"protocol": "https",
+					"host": [
+						"{{api-id}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Restaurant",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"restaurant3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-id}}.execute-api.us-east-1.amazonaws.com/dev/restaurant/102e2345-4316-4804-bd94-9bcb86b4e2d6",
+					"protocol": "https",
+					"host": [
+						"{{api-id}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"restaurant",
+						"102e2345-4316-4804-bd94-9bcb86b4e2d6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Restaurant",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-id}}.execute-api.us-east-1.amazonaws.com/dev/restaurant",
+					"protocol": "https",
+					"host": [
+						"{{api-id}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-id}}.execute-api.us-east-1.amazonaws.com/dev/restaurant/102e2345-4316-4804-bd94-9bcb86b4e2d6/image",
+					"protocol": "https",
+					"host": [
+						"{{api-id}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"restaurant",
+						"102e2345-4316-4804-bd94-9bcb86b4e2d6",
+						"image"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "27ae7676-83b6-4f6e-9a27-5de6892177a2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "848630f7-1096-4ea8-9594-76483b921a16",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "7e723ec6-a7bd-4226-82ce-449873c86ab5",
+			"key": "api-id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "8c25d864-effb-461c-af43-009747407539",
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
