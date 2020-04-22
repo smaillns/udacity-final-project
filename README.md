@@ -8,10 +8,6 @@
 - Used TravisCi as CI/CD pipeline
 
 #### Local test
-`cd enterprice
-npm i
-ng serve --port 4200`
-
 http://localhost:4200 
 
 #### Access hosted website 
